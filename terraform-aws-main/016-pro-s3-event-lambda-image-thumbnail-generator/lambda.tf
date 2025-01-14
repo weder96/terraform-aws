@@ -28,10 +28,6 @@ resource "aws_lambda_function" "create_thumbnail_lambda_function" {
   source_code_hash = data.archive_file.thumbnail_lambda_source_archive.output_base64sha256
 
   role = aws_iam_role.lambda_s3_role.arn
-
-  layers = [
-    data.klayers_package_latest_version.pandas.arn
-  ]
 }
 
 ################################################################################
